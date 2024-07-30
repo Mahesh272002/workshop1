@@ -39,6 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function submitForm() {
         if (validateStep(currentStep)) {
             const name = document.getElementById('name').value;
+            const namePattern = /^[A-Z]+$/;
+
+            if (!namePattern.test(name)) {
+                alert('Name should only contain capital letters and no numbers or symbols.');
+                return;
+            }
+
             const dob = document.getElementById('dob').value;
             const contact = document.getElementById('contact').value;
             const address = document.getElementById('address').value;
